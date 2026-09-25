@@ -12,9 +12,12 @@ Installable as a PWA from the hosted page.
 
 ## Merhaba Antalya
 
-`turkish.html` — useful Turkish words and phrases for a trip to Antalya (146, in 9 topics),
+`turkish/` — useful Turkish words and phrases for a trip to Antalya (146, in 9 topics),
 each with an English-friendly respelling and tap-to-hear audio (uses the device's Turkish
 voice). Six test styles run over each topic: meaning, recall, listening, letter sounds,
-spelling, or a mix. Progress is saved on the device. Same deal: one file, no dependencies.
+spelling, or a mix. Progress is saved on the device.
 
-**→ https://chixaelm.github.io/reset/turkish.html**
+It's an installable PWA that works fully offline: open it once, then add it to your home
+screen (Safari: Share → Add to Home Screen; Chrome: Install app). No dependencies, no build.
+
+**→ https://chixaelm.github.io/reset/turkish/**

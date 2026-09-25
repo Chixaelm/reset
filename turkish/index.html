@@ -10,6 +10,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Türkçe">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a7f86'/%3E%3Ccircle cx='32' cy='27' r='11' fill='%23ffcf66'/%3E%3Cpath d='M8 45c6-5 10-5 16 0s10 5 16 0 10-5 16 0' stroke='%23fff' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 <style>
   :root{
@@ -358,6 +361,10 @@
 
   footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--hair);font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:space-between}
   footer button{border:0;background:none;padding:0;color:var(--muted);text-decoration:underline;font-size:13px}
+  footer .foot-actions{display:flex;gap:14px}
+  footer #installBtn{color:var(--accent);font-weight:700}
+  #offlineTxt.ready::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--good);margin-right:7px;vertical-align:1px}
+  #iosHint{flex-basis:100%;margin:2px 0 0}
 
   #toast{
     position:fixed;left:50%;bottom:max(20px,env(safe-area-inset-bottom));transform:translate(-50%,20px);
@@ -396,8 +403,12 @@
   <main id="view"></main>
 
   <footer>
-    <span>Progress is saved on this device only.</span>
-    <button id="resetBtn" type="button">Reset progress</button>
+    <span id="offlineTxt">Progress is saved on this device only.</span>
+    <span class="foot-actions">
+      <button id="installBtn" type="button" hidden>Install app</button>
+      <button id="resetBtn" type="button">Reset progress</button>
+    </span>
+    <p id="iosHint" hidden>To install on iPhone or iPad: open this page in Safari, tap Share, then “Add to Home Screen”.</p>
   </footer>
 </div>
 <div id="toast" role="status" aria-live="polite"></div>
@@ -1089,7 +1100,7 @@ const LETTER_CARDS = [
 function renderSounds(){
   const st = audioState();
   const voiceLine = st === 'ok'
-    ? `<div class="voice ok"><b>Turkish voice ready</b> — ${esc(trVoice.name)} (${esc(trVoice.lang)}).</div>`
+    ? `<div class="voice ok"><b>Turkish voice ready</b> — ${esc(trVoice.name)} (${esc(trVoice.lang)}).${trVoice.localService ? '' : ' This voice streams from the internet, so audio may stop when you’re offline. To fix that, download Turkish voice data in your device’s text-to-speech settings.'}</div>`
     : st === 'none'
       ? `<div class="voice no"><b>No Turkish voice found on this device.</b> Everything still works from the respellings. To add audio:
           on iPhone/iPad go to Settings › Accessibility › Spoken Content › Voices › Turkish; on Android, open your text-to-speech settings and install Turkish voice data; on a computer, add Turkish in your system’s language or speech settings. Then reload this page.</div>`
@@ -1188,6 +1199,28 @@ document.addEventListener('keydown', e => {
   else if (quiz.answered && (e.key === 'Enter' || e.key === ' ') && e.target.tagName !== 'BUTTON') { next(); e.preventDefault(); }
   else if (e.key === 'Escape') { if (synth) synth.cancel(); setTab('tests'); }
 });
+
+/* ---------- offline & install ---------- */
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+  navigator.serviceWorker.ready.then(() => {
+    const t = $('#offlineTxt');
+    t.textContent = 'Saved for offline use · progress stays on this device';
+    t.classList.add('ready');
+  });
+}
+const standalone = matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+let installPrompt = null;
+addEventListener('beforeinstallprompt', e => { e.preventDefault(); installPrompt = e; $('#installBtn').hidden = false; });
+addEventListener('appinstalled', () => { installPrompt = null; $('#installBtn').hidden = true; toast('Installed — find “Türkçe” on your home screen'); });
+$('#installBtn').addEventListener('click', async () => {
+  if (!installPrompt) return;
+  installPrompt.prompt();
+  try { await installPrompt.userChoice; } catch (e) {}
+  installPrompt = null; $('#installBtn').hidden = true;
+});
+const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+if (isIOS && !standalone) $('#iosHint').hidden = false;
 
 /* ---------- go ---------- */
 loadVoices();

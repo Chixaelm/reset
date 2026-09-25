@@ -1,0 +1,1202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Merhaba Antalya</title>
+<meta name="description" content="Useful Turkish words and phrases for Antalya — with pronunciation, audio and a series of quick tests.">
+<meta name="theme-color" content="#f6f1e7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b161c" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Türkçe">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a7f86'/%3E%3Ccircle cx='32' cy='27' r='11' fill='%23ffcf66'/%3E%3Cpath d='M8 45c6-5 10-5 16 0s10 5 16 0 10-5 16 0' stroke='%23fff' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#f6f1e7;
+    --glow:#fbe1bd;
+    --surface:#fffdf8;
+    --surface-2:#efe7d8;
+    --ink:#10252f;
+    --muted:#56676c;
+    --hair:rgba(16,37,47,.12);
+    --accent:#0a7f86;
+    --accent-ink:#ffffff;
+    --accent-soft:rgba(10,127,134,.11);
+    --say:#a84b17;
+    --good:#1b7f47;
+    --good-soft:rgba(27,127,71,.12);
+    --bad:#c0322a;
+    --bad-soft:rgba(192,50,42,.10);
+    --warn:#c7870b;
+    --shadow:0 1px 2px rgba(16,37,47,.05),0 6px 18px rgba(16,37,47,.06);
+    --serif:ui-serif,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --sans:ui-sans-serif,-apple-system,"SF Pro Text","Segoe UI",Roboto,system-ui,sans-serif;
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0b161c;
+      --glow:#123440;
+      --surface:#12222b;
+      --surface-2:#1a2e38;
+      --ink:#e7f1f2;
+      --muted:#93a8ad;
+      --hair:rgba(231,241,242,.12);
+      --accent:#3cc4c4;
+      --accent-ink:#052326;
+      --accent-soft:rgba(60,196,196,.13);
+      --say:#f3a06b;
+      --good:#52c78c;
+      --good-soft:rgba(82,199,140,.14);
+      --bad:#ff7466;
+      --bad-soft:rgba(255,116,102,.13);
+      --warn:#f0b43c;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.25);
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0b161c;--glow:#123440;--surface:#12222b;--surface-2:#1a2e38;--ink:#e7f1f2;--muted:#93a8ad;
+    --hair:rgba(231,241,242,.12);--accent:#3cc4c4;--accent-ink:#052326;--accent-soft:rgba(60,196,196,.13);
+    --say:#f3a06b;--good:#52c78c;--good-soft:rgba(82,199,140,.14);--bad:#ff7466;--bad-soft:rgba(255,116,102,.13);
+    --warn:#f0b43c;--shadow:0 1px 2px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.25);color-scheme:dark;
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    min-height:100vh;
+    background:radial-gradient(130% 55% at 50% -12%, var(--glow) 0%, transparent 62%) no-repeat, var(--bg);
+    color:var(--ink);
+    font:16px/1.45 var(--sans);
+    -webkit-font-smoothing:antialiased;
+    -webkit-tap-highlight-color:transparent;
+    overflow-x:hidden;
+  }
+  button{font:inherit;color:inherit;cursor:pointer}
+  button:disabled{cursor:default}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .shell{
+    max-width:680px;
+    margin:0 auto;
+    padding:max(20px,env(safe-area-inset-top)) 16px max(28px,env(safe-area-inset-bottom));
+  }
+
+  /* ---------- header ---------- */
+  .top{padding:10px 2px 14px}
+  .brand{
+    display:flex;align-items:center;gap:8px;
+    font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);
+  }
+  .brand i{width:6px;height:6px;border-radius:50%;background:var(--bad);box-shadow:0 0 10px var(--bad)}
+  h1{
+    font:600 clamp(36px,9vw,48px)/1.05 var(--serif);
+    letter-spacing:-.01em;margin:10px 0 6px;
+  }
+  .lede{margin:0 0 14px;color:var(--muted);max-width:34em}
+  .overall{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--muted)}
+  .overall .bar{flex:1;max-width:220px}
+  .bar{height:6px;border-radius:99px;background:var(--hair);overflow:hidden}
+  .bar>span{display:block;height:100%;border-radius:inherit;background:var(--good);transition:width .4s ease}
+  .in-quiz .top,.in-quiz .tabs,.in-quiz footer{display:none}
+
+  /* ---------- tabs ---------- */
+  .tabs{
+    position:sticky;top:0;z-index:5;
+    display:flex;align-items:center;gap:10px;
+    margin:0 -16px 16px;padding:10px 16px;
+    background:var(--bg);
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--hair);
+  }
+  .seg{display:flex;flex:1;background:var(--surface-2);border-radius:12px;padding:3px;gap:2px}
+  .seg button{
+    flex:1;border:0;background:transparent;border-radius:9px;padding:8px 6px;
+    font-weight:600;font-size:14px;color:var(--muted);
+  }
+  .seg button[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+  .pill{
+    border:1px solid var(--hair);background:var(--surface);border-radius:99px;
+    padding:7px 12px;font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap;
+  }
+  .pill[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+
+  /* ---------- learn ---------- */
+  .search{
+    display:flex;align-items:center;gap:8px;
+    background:var(--surface);border:1px solid var(--hair);border-radius:12px;padding:0 12px;
+  }
+  .search svg{flex:none;color:var(--muted)}
+  .search input{
+    flex:1;min-width:0;border:0;background:transparent;color:var(--ink);
+    font:inherit;padding:11px 0;outline:none;
+  }
+  .search:focus-within{border-color:var(--accent)}
+  .chips{
+    display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;
+    margin:12px -16px 4px;padding:2px 16px 8px;
+  }
+  .chips::-webkit-scrollbar{display:none}
+  .chip{
+    flex:none;border:1px solid var(--hair);background:var(--surface);border-radius:99px;
+    padding:7px 12px;font-size:14px;font-weight:500;
+  }
+  .chip span{color:var(--muted);font-size:12px;margin-left:2px}
+  .chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .chip.on span{color:inherit;opacity:.7}
+
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:22px 2px 10px}
+  .sec-head h2{font:600 22px/1.15 var(--serif);margin:0}
+  .sec-head h2 small{display:block;font:500 12px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+  .sec-head p{margin:4px 0 0;color:var(--muted);font-size:14px}
+  .link-btn{
+    flex:none;border:0;background:var(--accent-soft);color:var(--accent);
+    border-radius:99px;padding:7px 12px;font-size:13px;font-weight:700;
+  }
+  .legend{display:flex;gap:14px;font-size:12px;color:var(--muted);margin:8px 2px 0}
+  .legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:0}
+
+  .list{display:grid;gap:10px}
+  .card{
+    position:relative;display:flex;gap:12px;align-items:flex-start;
+    background:var(--surface);border:1px solid var(--hair);border-radius:14px;
+    padding:14px 14px 14px 16px;box-shadow:var(--shadow);cursor:pointer;
+    overflow:hidden;
+  }
+  .card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:transparent}
+  .card.learning::before{background:var(--warn)}
+  .card.known::before{background:var(--good)}
+  .card-main{flex:1;min-width:0}
+  .tr{font:600 21px/1.2 var(--serif);overflow-wrap:anywhere}
+  .say{color:var(--say);font-weight:600;font-size:14px;letter-spacing:.02em;margin-top:3px;overflow-wrap:anywhere}
+  .en{margin-top:4px}
+  .note{margin:6px 0 0;font-size:13px;color:var(--muted)}
+  .play{
+    flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;
+    border:0;background:var(--accent-soft);color:var(--accent);
+  }
+  .play.playing{background:var(--accent);color:var(--accent-ink);animation:pulse 1s ease-in-out infinite}
+  @keyframes pulse{50%{box-shadow:0 0 0 6px var(--accent-soft)}}
+  .empty{text-align:center;color:var(--muted);padding:40px 10px}
+
+  /* ---------- tests ---------- */
+  .h{font:600 13px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:22px 2px 10px}
+  .h:first-child{margin-top:4px}
+  .mode-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .mode{
+    text-align:left;border:1px solid var(--hair);background:var(--surface);border-radius:12px;
+    padding:10px 11px;display:flex;flex-direction:column;gap:2px;min-width:0;
+  }
+  .mode b{font-size:15px}
+  .mode span{font-size:12px;color:var(--muted)}
+  .mode[aria-checked="true"]{border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+  .mode:disabled{opacity:.45}
+  .mode-desc{margin:10px 2px 0;font-size:14px;color:var(--muted)}
+
+  .series{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+  .row{
+    width:100%;display:flex;align-items:center;gap:12px;text-align:left;
+    border:1px solid var(--hair);background:var(--surface);border-radius:14px;padding:12px 14px;
+    box-shadow:var(--shadow);
+  }
+  .row:disabled{opacity:.5}
+  .num{
+    flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+    background:var(--surface-2);font-weight:700;font-size:14px;
+  }
+  .num.done{background:var(--good);color:var(--surface)}
+  .row-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+  .row-main b{font-size:16px}
+  .row-main small{color:var(--muted);font-size:13px}
+  .row-main .bar{height:4px;max-width:160px}
+  .best{flex:none;text-align:right;font-size:12px;color:var(--muted);line-height:1.2}
+  .best b{display:block;font-size:17px;color:var(--ink)}
+  .chev{flex:none;color:var(--muted)}
+
+  /* ---------- quiz ---------- */
+  .qtop{display:flex;align-items:center;gap:12px;padding:6px 0 12px}
+  .icon-btn{
+    flex:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--hair);
+    background:var(--surface);display:grid;place-items:center;color:var(--muted);
+  }
+  .qtitle{flex:1;min-width:0;display:flex;flex-direction:column}
+  .qtitle b{font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .qtitle span{font-size:13px;color:var(--muted)}
+  .qscore{
+    flex:none;min-width:40px;height:40px;padding:0 10px;border-radius:99px;display:grid;place-items:center;
+    background:var(--good-soft);color:var(--good);font-weight:700;
+  }
+  .qbar{height:5px;margin-bottom:18px}
+  .qbar>span{background:var(--accent)}
+  .qcard{
+    background:var(--surface);border:1px solid var(--hair);border-radius:18px;box-shadow:var(--shadow);
+    padding:22px 18px;text-align:center;
+  }
+  .qlabel{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+  .qprompt{font:600 clamp(26px,7.5vw,36px)/1.15 var(--serif);overflow-wrap:anywhere}
+  .qprompt.en{font:600 clamp(22px,6vw,28px)/1.25 var(--sans)}
+  .qprompt mark{background:var(--say);color:var(--surface);border-radius:6px;padding:0 .08em;margin:0 .02em}
+  .qsay{color:var(--say);font-weight:600;margin-top:8px}
+  .qplay{display:flex;justify-content:center;gap:10px;margin-top:14px}
+  .big-play{
+    width:84px;height:84px;border-radius:50%;border:0;display:grid;place-items:center;
+    background:var(--accent);color:var(--accent-ink);box-shadow:0 8px 24px var(--accent-soft);
+  }
+  .big-play.playing{animation:pulse 1s ease-in-out infinite}
+  .soft-btn{
+    border:1px solid var(--hair);background:var(--surface);border-radius:99px;padding:8px 14px;
+    font-size:14px;font-weight:600;color:var(--ink);display:inline-flex;align-items:center;gap:6px;
+  }
+  .answers{display:grid;gap:8px;margin-top:14px}
+  .opt{
+    display:flex;align-items:center;gap:12px;width:100%;text-align:left;
+    background:var(--surface);border:1px solid var(--hair);border-radius:14px;padding:13px 14px;
+    font-size:17px;box-shadow:var(--shadow);transition:transform .08s ease;
+  }
+  .opt:active:not(:disabled){transform:scale(.99)}
+  .opt .k{
+    flex:none;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
+    background:var(--surface-2);font-size:13px;font-weight:700;color:var(--muted);
+  }
+  .opt[lang="tr"] .lbl{font-family:var(--serif);font-weight:600;font-size:19px}
+  .opt .lbl{flex:1;min-width:0;overflow-wrap:anywhere}
+  .opt .lbl small{display:block;font-family:var(--sans);font-weight:400;font-size:13px;color:var(--muted)}
+  .opt.right{border-color:var(--good);background:var(--good-soft)}
+  .opt.right .k{background:var(--good);color:var(--surface)}
+  .opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+  .opt.wrong .k{background:var(--bad);color:var(--surface)}
+  .opt.dim{opacity:.5}
+
+  .typebox{display:grid;gap:10px}
+  .typebox input{
+    width:100%;font:600 20px/1.2 var(--serif);color:var(--ink);background:var(--surface);
+    border:1px solid var(--hair);border-radius:14px;padding:14px;outline:none;
+  }
+  .typebox input:focus{border-color:var(--accent)}
+  .typebox input.ok{border-color:var(--good);background:var(--good-soft)}
+  .typebox input.no{border-color:var(--bad);background:var(--bad-soft)}
+  .keys{display:flex;flex-wrap:wrap;gap:6px}
+  .keys button{
+    min-width:42px;height:42px;border-radius:10px;border:1px solid var(--hair);background:var(--surface);
+    font:600 18px/1 var(--serif);
+  }
+  .type-actions{display:flex;gap:8px}
+  .type-actions .primary{flex:1}
+
+  .fb{display:flex;align-items:baseline;gap:8px;margin:16px 2px 8px;font-size:15px}
+  .fb b{font:600 22px/1 var(--serif)}
+  .fb.good b{color:var(--good)}
+  .fb.bad b{color:var(--bad)}
+  .fb span{color:var(--muted)}
+  .reveal{
+    display:flex;gap:12px;align-items:flex-start;
+    background:var(--surface-2);border-radius:14px;padding:14px 14px 14px 16px;
+  }
+  .reveal .hint{margin:8px 0 0;font-size:14px}
+  .primary{
+    border:0;background:var(--accent);color:var(--accent-ink);border-radius:14px;
+    padding:14px 18px;font-size:16px;font-weight:700;
+  }
+  .next{width:100%;margin-top:12px}
+  .kbd-hint{text-align:center;font-size:12px;color:var(--muted);margin-top:10px}
+  @media (hover:none){.kbd-hint{display:none}}
+
+  /* ---------- results ---------- */
+  .result{text-align:center;padding:10px 0}
+  .ring{width:150px;height:150px;margin:6px auto 4px;position:relative}
+  .ring svg{transform:rotate(-90deg)}
+  .ring .val{position:absolute;inset:0;display:grid;place-content:center;font:600 34px/1 var(--serif)}
+  .ring .val small{display:block;font:500 13px/1.4 var(--sans);color:var(--muted)}
+  .result h2{font:600 32px/1.1 var(--serif);margin:10px 0 2px}
+  .result p{margin:4px 0;color:var(--muted)}
+  .newbest{display:inline-block;margin-top:8px;background:var(--good-soft);color:var(--good);font-weight:700;font-size:13px;border-radius:99px;padding:5px 12px}
+  .result .actions{display:grid;gap:8px;margin:20px 0 6px}
+  .result .actions .soft-btn{justify-content:center;padding:13px 14px;border-radius:14px}
+  .missed{text-align:left}
+
+  /* ---------- sounds ---------- */
+  .prose{color:var(--muted);margin:0 2px 14px}
+  .letters{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+  .letter{
+    text-align:left;border:1px solid var(--hair);background:var(--surface);border-radius:14px;
+    padding:12px;display:flex;flex-direction:column;gap:4px;box-shadow:var(--shadow);min-width:0;
+  }
+  .letter .L{font:600 28px/1 var(--serif)}
+  .letter .S{font-size:14px}
+  .letter .S b{color:var(--say)}
+  .letter .ex{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:5px}
+  .letter .ex em{font-family:var(--serif);font-style:normal;font-weight:600;color:var(--ink);font-size:15px}
+  .tips{margin:0;padding:0 2px 0 20px;display:grid;gap:8px}
+  .tips li{padding-left:2px}
+  .key{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;
+    background:var(--surface);border:1px solid var(--hair);border-radius:14px;padding:12px 14px;
+  }
+  .key div{font-size:14px;color:var(--muted)}
+  .key b{color:var(--say);display:inline-block;min-width:2.4em}
+  .key em{font-family:var(--serif);font-style:normal;font-weight:600;color:var(--ink)}
+  .panel{background:var(--surface);border:1px solid var(--hair);border-radius:14px;padding:14px;display:grid;gap:12px}
+  .voice{font-size:14px}
+  .voice.ok b{color:var(--good)}
+  .voice.no b{color:var(--bad)}
+  .switch{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:15px}
+  .switch small{display:block;color:var(--muted);font-size:13px}
+  .toggle{
+    flex:none;width:50px;height:30px;border-radius:99px;border:0;background:var(--hair);position:relative;
+    transition:background .2s;
+  }
+  .toggle::after{
+    content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;
+    background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .2s;
+  }
+  .toggle[aria-checked="true"]{background:var(--accent)}
+  .toggle[aria-checked="true"]::after{transform:translateX(20px)}
+  .cta{width:100%;margin-top:14px}
+
+  footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--hair);font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px;justify-content:space-between}
+  footer button{border:0;background:none;padding:0;color:var(--muted);text-decoration:underline;font-size:13px}
+
+  #toast{
+    position:fixed;left:50%;bottom:max(20px,env(safe-area-inset-bottom));transform:translate(-50%,20px);
+    max-width:calc(100% - 32px);background:var(--ink);color:var(--bg);border-radius:12px;padding:10px 14px;
+    font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:20;
+  }
+  #toast.show{opacity:1;transform:translate(-50%,0)}
+
+  @media (max-width:420px){
+    .mode-grid{grid-template-columns:repeat(2,1fr)}
+    .tr{font-size:19px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="top">
+    <div class="brand"><i></i>Türkçe · Antalya</div>
+    <h1>Merhaba!</h1>
+    <p class="lede">Everyday Turkish for the coast. Hear each phrase, read it aloud from the respelling, then test yourself.</p>
+    <div class="overall"><div class="bar"><span id="knownBar" style="width:0"></span></div><span id="knownTxt"></span></div>
+  </header>
+
+  <nav class="tabs">
+    <div class="seg" role="tablist" aria-label="Sections">
+      <button role="tab" data-tab="learn" aria-selected="true">Learn</button>
+      <button role="tab" data-tab="tests" aria-selected="false">Tests</button>
+      <button role="tab" data-tab="sounds" aria-selected="false">Sounds</button>
+    </div>
+    <button class="pill" id="slowBtn" aria-pressed="false" title="Play audio slowly">Slow</button>
+  </nav>
+
+  <main id="view"></main>
+
+  <footer>
+    <span>Progress is saved on this device only.</span>
+    <button id="resetBtn" type="button">Reset progress</button>
+  </footer>
+</div>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+'use strict';
+
+/* =====================================================================
+   Phrase bank.  [Turkish, respelling, English, note?, confusable-group?]
+   Respelling: CAPITALS mark stress where it isn't on the last syllable.
+   ===================================================================== */
+const CATS = [
+  { id:'basics', name:'First words',    tr:'İlk kelimeler', blurb:'Greetings and the handful of words you’ll use fifty times a day.' },
+  { id:'chat',   name:'Chatting',       tr:'Sohbet',        blurb:'Small talk, and what to say when you’re lost for words.' },
+  { id:'food',   name:'Café & food',    tr:'Yemek',         blurb:'Ordering, eating, and thanking the cook.' },
+  { id:'shop',   name:'Shopping',       tr:'Alışveriş',     blurb:'Prices, bargaining in the bazaar, and saying no politely.' },
+  { id:'go',     name:'Getting around', tr:'Ulaşım',        blurb:'Taxis, trams, dolmuş minibuses and directions.' },
+  { id:'beach',  name:'Beach & hotel',  tr:'Plaj ve otel',  blurb:'Sunbeds, sea, and sorting out your room.' },
+  { id:'num',    name:'Numbers',        tr:'Sayılar',       blurb:'Enough to understand prices and times.' },
+  { id:'help',   name:'Help & health',  tr:'Yardım',        blurb:'For when things go wrong. Emergency number in Turkey: 112.' },
+  { id:'local',  name:'Like a local',   tr:'Yerel',         blurb:'Little courtesies that make people smile.' },
+];
+
+const RAW = {
+  basics: [
+    ['Merhaba','MER-ha-ba','Hello','Works any time of day, with anyone.','hi'],
+    ['Selam','seh-lam','Hi','Casual — for people you’ve already met.','hi'],
+    ['Günaydın','gew-nai-duhn','Good morning','Until about 11 am.'],
+    ['İyi akşamlar','ee-yee ak-sham-lar','Good evening','Also a polite goodbye in the evening.'],
+    ['İyi geceler','ee-yee geh-jeh-ler','Good night','When leaving late, or heading to bed.'],
+    ['Evet','EH-vet','Yes'],
+    ['Hayır','HA-yuhr','No'],
+    ['Tamam','ta-mam','OK','Probably the word you’ll hear most.'],
+    ['Lütfen','LEWT-fen','Please','Tack it on the end: “Su, lütfen.”'],
+    ['Teşekkür ederim','teh-shek-kewr eh-deh-reem','Thank you','The full, polite thank you.','thanks'],
+    ['Teşekkürler','teh-shek-kewr-ler','Thanks','A little shorter and more casual.','thanks'],
+    ['Sağ ol','saa ol','Cheers (casual thanks)','The ğ is silent — it just stretches the a.','thanks'],
+    ['Rica ederim','ree-ja eh-deh-reem','You’re welcome','c sounds like j.'],
+    ['Affedersiniz','af-feh-DER-see-neez','Excuse me','To get past someone, or to get their attention.','sorry'],
+    ['Özür dilerim','ur-zewr dee-leh-reem','I’m sorry','A proper apology.','sorry'],
+    ['Hoşça kalın','HOSH-cha ka-luhn','Goodbye (when you’re leaving)','Said by the person who leaves.','bye'],
+    ['Güle güle','gew-leh gew-leh','Goodbye (to someone leaving)','Literally “go smiling” — the reply to “Hoşça kalın”.','bye'],
+    ['Görüşürüz','gur-rew-shew-rewz','See you later','A friendly, informal goodbye.','bye'],
+  ],
+  chat: [
+    ['Nasılsınız?','NA-suhl-suh-nuhz','How are you?','Polite form. To a friend: “Nasılsın?”'],
+    ['İyiyim, siz?','ee-YEE-yeem, seez','I’m fine — and you?'],
+    ['Adınız ne?','a-duh-nuhz NEH','What’s your name?','Answer: “Benim adım …” (beh-neem a-duhm …).'],
+    ['Memnun oldum','mem-noon ol-doom','Nice to meet you'],
+    ['Nerelisiniz?','NEH-reh-lee-see-neez','Where are you from?','You’ll hear this a lot — just answer with your country.'],
+    ['Türkçe bilmiyorum','TEWRK-cheh BEEL-mee-yo-room','I don’t speak Turkish','Literally “I don’t know Turkish”.'],
+    ['Biraz Türkçe biliyorum','bee-raz TEWRK-cheh bee-LEE-yo-room','I speak a little Turkish','Guaranteed to get a smile.'],
+    ['İngilizce biliyor musunuz?','een-gee-LEEZ-jeh bee-LEE-yor moo-soo-nooz','Do you speak English?'],
+    ['Anlamıyorum','an-LA-muh-yo-room','I don’t understand',null,'understand'],
+    ['Anlamadım','an-LA-ma-duhm','Sorry, I didn’t catch that','Literally “I didn’t understand”.','understand'],
+    ['Tekrar eder misiniz?','tek-rar eh-DER mee-see-neez','Could you say that again?'],
+    ['Daha yavaş, lütfen','da-ha ya-vash, LEWT-fen','Slower, please'],
+    ['Bilmiyorum','BEEL-mee-yo-room','I don’t know'],
+    ['Çok güzel','chok gew-zel','Very nice / beautiful','Works for views, food, people — everything.'],
+    ['Harika!','HA-ree-ka','Wonderful!'],
+  ],
+  food: [
+    ['Bakar mısınız?','ba-KAR muh-suh-nuhz','Excuse me! (to a waiter)','Literally “Could you look?” — the polite way to call staff over.'],
+    ['Menü, lütfen','meh-new, LEWT-fen','The menu, please'],
+    ['İki kişilik masa','ee-kee kee-shee-leek ma-sa','A table for two'],
+    ['Bir çay, lütfen','beer chai, LEWT-fen','A tea, please','Served in small tulip glasses, sugar cubes on the side.'],
+    ['Türk kahvesi','tewrk kah-veh-see','Turkish coffee','Order it sade (plain), orta (medium) or şekerli (sweet).'],
+    ['Su','soo','Water'],
+    ['Ekmek','ek-mek','Bread'],
+    ['Bira','BEE-ra','Beer'],
+    ['Şekersiz','sheh-ker-seez','Without sugar'],
+    ['Ne tavsiye edersiniz?','NEH tav-see-yeh eh-DER-see-neez','What do you recommend?'],
+    ['Vejetaryenim','veh-zheh-tar-YEH-neem','I’m vegetarian','Turkish j sounds like the s in “measure”.'],
+    ['Acı mı?','a-JUH muh','Is it spicy?','acı = spicy (or bitter).'],
+    ['Çok lezzetli!','chok lez-zet-lee','Delicious!'],
+    ['Hesap, lütfen','heh-sap, LEWT-fen','The bill, please'],
+    ['Afiyet olsun','a-fee-yet OL-soon','Enjoy your meal','You’ll hear it as food arrives — reply “Teşekkürler”.'],
+    ['Elinize sağlık','eh-lee-nee-zeh saa-luhk','Compliments to the cook','Literally “health to your hands”.'],
+    ['Kahvaltı','kah-val-tuh','Breakfast','Try a serpme kahvaltı — a spread that covers the whole table.'],
+    ['Balık','ba-luhk','Fish'],
+    ['Tavuk','ta-vook','Chicken'],
+    ['Dondurma','don-door-ma','Ice cream','Expect tricks from the dondurma sellers.'],
+  ],
+  shop: [
+    ['Bu ne kadar?','boo NEH ka-dar','How much is this?'],
+    ['Kaç lira?','kach LEE-ra','How many lira?'],
+    ['Çok pahalı','chok pa-ha-luh','Too expensive'],
+    ['Biraz indirim yapar mısınız?','bee-raz een-dee-reem ya-PAR muh-suh-nuhz','Could you give me a small discount?','Bargaining is normal in the bazaar — not in supermarkets.'],
+    ['Son fiyat ne kadar?','son fee-yat NEH ka-dar','What’s your final price?'],
+    ['Sadece bakıyorum','sa-deh-jeh ba-KUH-yo-room','I’m just looking'],
+    ['Bunu alıyorum','boo-noo a-LUH-yo-room','I’ll take this'],
+    ['Kartla ödeyebilir miyim?','kart-la ur-deh-yeh-bee-LEER mee-yeem','Can I pay by card?'],
+    ['Nakit','na-keet','Cash'],
+    ['Poşet istemiyorum','po-shet ees-TEH-mee-yo-room','I don’t need a bag','Shops charge for plastic bags.'],
+    ['Başka rengi var mı?','bash-ka ren-gee VAR muh','Do you have another colour?'],
+    ['Hayır, teşekkürler','HA-yuhr, teh-shek-kewr-ler','No, thank you','Firm and friendly — for persistent sellers.'],
+    ['Ucuz','oo-jooz','Cheap'],
+    ['Büyük','bew-yewk','Big',null,'size'],
+    ['Küçük','kew-chewk','Small',null,'size'],
+    ['Nazar boncuğu','na-zar bon-joo-oo','Evil-eye bead','The blue glass charm you’ll see everywhere.'],
+  ],
+  go: [
+    ['Tuvalet nerede?','too-va-let NEH-reh-deh','Where’s the toilet?','Swap in any place: “Otogar nerede?”'],
+    ['Otogar','o-to-gar','Bus station','For intercity coaches.'],
+    ['Havalimanı','ha-va-lee-ma-nuh','Airport'],
+    ['Kaleiçi’ne nasıl giderim?','ka-leh-ee-chee-neh NA-suhl gee-deh-reem','How do I get to Kaleiçi?','Kaleiçi is Antalya’s old town.'],
+    ['Uzak mı?','oo-ZAK muh','Is it far?'],
+    ['Yakın','ya-kuhn','Near / close by'],
+    ['Sağa','sa-a','To the right',null,'dir'],
+    ['Sola','so-la','To the left',null,'dir'],
+    ['Düz','dewz','Straight on',null,'dir'],
+    ['Burada durun, lütfen','BOO-ra-da DOO-roon, LEWT-fen','Stop here, please'],
+    ['Müsait bir yerde','mew-sa-eet beer yer-deh','Wherever’s convenient (to stop)','How to ask a dolmuş driver to let you off.'],
+    ['İnecek var!','ee-neh-jek var','Someone’s getting off!','Call it out on a dolmuş or bus.'],
+    ['Taksimetreyi açar mısınız?','tak-see-met-reh-yee a-CHAR muh-suh-nuhz','Could you turn on the meter?','Worth asking before the taxi pulls away.'],
+    ['Bu otobüs Lara’ya gider mi?','boo o-to-bews LA-ra-ya gee-DER mee','Does this bus go to Lara?','Swap in Konyaaltı, Kaleiçi, Otogar…'],
+    ['Ne kadar sürer?','NEH ka-dar sew-rer','How long does it take?'],
+    ['Dolmuş','dol-moosh','Shared minibus','Runs fixed routes; hop off anywhere along the way.'],
+    ['Antalyakart','an-TAL-ya-kart','Antalya transit card','For trams and city buses — top it up at kiosks.'],
+    ['Tramvay','tram-vai','Tram'],
+  ],
+  beach: [
+    ['Plaj nerede?','plazh NEH-reh-deh','Where’s the beach?'],
+    ['Rezervasyonum var','reh-zer-vas-yo-noom var','I have a reservation'],
+    ['Oda anahtarı','o-da a-nah-ta-ruh','Room key'],
+    ['Klima çalışmıyor','klee-ma cha-LUHSH-muh-yor','The air-con isn’t working'],
+    ['İnternet şifresi ne?','een-ter-net sheef-reh-see NEH','What’s the Wi-Fi password?'],
+    ['Saat kaçta kahvaltı?','sa-at KACH-ta kah-val-tuh','What time is breakfast?'],
+    ['Şezlong','shez-long','Sunbed','Beach clubs usually charge for them.'],
+    ['Şemsiye','shem-see-yeh','Parasol / umbrella'],
+    ['Havlu','hav-loo','Towel'],
+    ['Güneş kremi','gew-nesh kreh-mee','Sun cream'],
+    ['Deniz','deh-neez','Sea'],
+    ['Havuz','ha-vooz','Swimming pool'],
+    ['Deniz çok güzel','deh-neez chok gew-zel','The sea is lovely'],
+    ['Çok sıcak!','chok suh-jak','It’s so hot!',null,'temp'],
+    ['Soğuk','so-ook','Cold','“Soğuk su” = cold water.','temp'],
+  ],
+  num: [
+    ['Bir','beer','1 · one','Also means “a / an”: bir çay = a tea.'],
+    ['İki','ee-kee','2 · two'],
+    ['Üç','ewch','3 · three'],
+    ['Dört','durt','4 · four'],
+    ['Beş','besh','5 · five'],
+    ['Altı','al-tuh','6 · six'],
+    ['Yedi','yeh-dee','7 · seven'],
+    ['Sekiz','seh-keez','8 · eight'],
+    ['Dokuz','do-kooz','9 · nine'],
+    ['On','on','10 · ten'],
+    ['Yirmi','yeer-mee','20 · twenty'],
+    ['Elli','el-lee','50 · fifty','Double letters are held a beat longer.'],
+    ['Yüz','yewz','100 · a hundred'],
+    ['Beş yüz','besh yewz','500 · five hundred'],
+    ['Bin','been','1,000 · a thousand','“İki bin” = 2,000.'],
+    ['Yarım','ya-ruhm','Half','“Yarım kilo” = half a kilo.'],
+  ],
+  help: [
+    ['İmdat!','eem-dat','Help! (emergency)','Shout it — it means real trouble.','help'],
+    ['Yardım edin, lütfen','yar-duhm eh-deen, LEWT-fen','Please help me','help'],
+    ['Polis çağırın!','po-lees chaa-uh-ruhn','Call the police!','Emergency number: 112.','call'],
+    ['Ambulans çağırın!','am-boo-lans chaa-uh-ruhn','Call an ambulance!','Emergency number: 112.','call'],
+    ['Doktora ihtiyacım var','dok-to-ra eeh-tee-ya-juhm var','I need a doctor'],
+    ['Hastane','has-ta-neh','Hospital'],
+    ['Eczane nerede?','ej-za-neh NEH-reh-deh','Where’s a pharmacy?','Look for the red “E” sign. At night, find the “nöbetçi eczane” (on-duty pharmacy).'],
+    ['Hastayım','has-TA-yuhm','I’m ill'],
+    ['Başım ağrıyor','ba-shuhm aa-RUH-yor','I have a headache'],
+    ['Midem bulanıyor','mee-dem boo-la-NUH-yor','I feel sick (nauseous)'],
+    ['Alerjim var','a-ler-zheem var','I have an allergy'],
+    ['Güneş çarpması','gew-nesh charp-ma-suh','Sunstroke','Drink water, find shade — the Antalya sun is strong.'],
+    ['Kayboldum','kai-bol-doom','I’m lost'],
+    ['Dur!','door','Stop!'],
+    ['Bırakın beni!','buh-RA-kuhn beh-nee','Leave me alone!'],
+  ],
+  local: [
+    ['Buyurun','boo-yoo-roon','Here you are / Come in / Yes?','From waiters and shopkeepers. Often said fast: “buyrun”.'],
+    ['Kolay gelsin','ko-lai GEL-seen','May your work go easily','Say it to anyone at work — cashiers, builders, cleaners.'],
+    ['Hoş geldiniz','hosh gel-dee-neez','Welcome','You’ll hear it walking into shops and restaurants.'],
+    ['Hoş bulduk','hosh bool-dook','Glad to be here (reply to “welcome”)','Literally “we found it pleasant”.'],
+    ['Geçmiş olsun','gech-meesh OL-soon','Get well soon','Also for any bad luck — a missed bus, a sunburn.'],
+    ['Çok yaşa','chok ya-sha','Bless you (after a sneeze)','Literally “live long”. The reply: “Sen de gör.”'],
+    ['Şerefe!','sheh-reh-feh','Cheers!','Raise a glass — perhaps of rakı.'],
+    ['Var mı?','VAR muh','Is there any? / Do you have…?','Put it after anything: “Su var mı?”','have'],
+    ['Yok','yok','There isn’t any','Often with a head tilt back and a “tsk” — that means no.','have'],
+    ['Hadi!','HA-dee','Come on! / Let’s go!'],
+    ['Yavaş yavaş','ya-vash ya-vash','Slowly, take it easy'],
+    ['Tabii','ta-bee-ee','Of course'],
+    ['Aynen','ai-nen','Exactly!'],
+  ],
+};
+
+const PHRASES = [];
+for (const c of CATS) for (const r of RAW[c.id]) {
+  PHRASES.push({ id:r[0], tr:r[0], say:r[1], en:r[2], note:r[3] || '', group:r[4] || '', cat:c.id });
+}
+const BY_ID = new Map(PHRASES.map(p => [p.id, p]));
+const CAT = Object.fromEntries(CATS.map(c => [c.id, c]));
+
+/* Letter sounds, for the Sounds tab and the Letters test. */
+const SOUNDS = {
+  c:{k:'j',  d:'as in “jam”'},
+  ç:{k:'ch', d:'as in “church”'},
+  ş:{k:'sh', d:'as in “ship”'},
+  ğ:{k:'silent', d:'stretches the vowel before it'},
+  ı:{k:'uh', d:'like the a in “about”'},
+  i:{k:'ee', d:'as in “see”, but short'},
+  ö:{k:'ur', d:'as in “fur” (no r), lips rounded'},
+  ü:{k:'ew', d:'as in “few”, lips rounded'},
+  u:{k:'oo', d:'as in “put”'},
+  o:{k:'o',  d:'as in “or”, short'},
+  e:{k:'e',  d:'as in “bed”'},
+  a:{k:'a',  d:'as in “father”, short'},
+  j:{k:'zh', d:'like the s in “measure”'},
+  s:{k:'s',  d:'as in “sun”'},
+  k:{k:'k',  d:'as in “kit”'},
+  g:{k:'g',  d:'hard, as in “go”'},
+  y:{k:'y',  d:'as in “yes”'},
+  ay:{k:'ay', d:'as in “say”'},
+};
+const CONFUSE = {
+  c:['k','s','ç'], ç:['s','c','ş'], ş:['s','ç','j'], ğ:['g','y','k'], j:['c','y','ş'],
+  ı:['i','u','ü'], i:['ı','ay','e'], ö:['o','ü','u'], ü:['u','ö','i'], u:['ü','ı','o'],
+  o:['u','ö','a'], e:['i','ay','a'], a:['ay','e','o'],
+};
+const LETTER_TIERS = [['ç','ş','ğ','ı','ö','ü','c','j'], ['i','u'], ['e','a','o']];
+
+const MODES = [
+  { id:'mixed',   name:'Mixed',   short:'A bit of everything', desc:'A mix of meaning, recall, listening and letter questions.' },
+  { id:'meaning', name:'Meaning', short:'Turkish → English',   desc:'See the Turkish phrase and its pronunciation — pick what it means.' },
+  { id:'recall',  name:'Recall',  short:'English → Turkish',   desc:'See the English — pick the right Turkish phrase.' },
+  { id:'listen',  name:'Listen',  short:'Hear it → English',   desc:'Hear the phrase spoken — pick what it means. Needs a Turkish voice on your device.' },
+  { id:'letters', name:'Letters', short:'How is it said?',     desc:'One letter is highlighted — pick how it’s pronounced. Builds your reading.' },
+  { id:'spell',   name:'Spell',   short:'Type the Turkish',    desc:'See the English — type the Turkish. Missing accents are forgiven, but noted.' },
+];
+const MODE = Object.fromEntries(MODES.map(m => [m.id, m]));
+
+/* ---------- storage (per-device conveniences only) ---------- */
+const store = {
+  get(k, d){ try { const v = localStorage.getItem('merhaba.' + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+  set(k, v){ try { localStorage.setItem('merhaba.' + k, JSON.stringify(v)); } catch (e) {} },
+};
+const S = {
+  stats: store.get('stats', {}),   // id -> {c:right, w:wrong, s:streak}
+  best:  store.get('best', {}),    // set|mode -> {s, n}
+  prefs: Object.assign({ slow:false, auto:true, mode:'mixed', tab:'learn' }, store.get('prefs', {})),
+};
+const savePrefs = () => store.set('prefs', S.prefs);
+if (!MODE[S.prefs.mode]) S.prefs.mode = 'mixed';
+
+/* ---------- helpers ---------- */
+const $ = (s, r = document) => r.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const trLower = s => s.toLocaleLowerCase('tr-TR');
+const FOLD = { ç:'c', ğ:'g', ı:'i', ş:'s', ö:'o', ü:'u', â:'a', î:'i', û:'u' };
+const clean = s => s.replace(/[’'`´]/g, '').replace(/[^\p{L}\p{N}\s]/gu, ' ').replace(/\s+/g, ' ').trim();
+const fold = s => s.replace(/[çğışöüâîû]/g, ch => FOLD[ch]);
+const lev = (a, b) => {
+  const m = a.length, n = b.length; let prev = Array.from({length:n + 1}, (_, j) => j);
+  for (let i = 1; i <= m; i++) {
+    const cur = [i];
+    for (let j = 1; j <= n; j++) cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    prev = cur;
+  }
+  return prev[n];
+};
+
+const status = id => { const s = S.stats[id]; return !s ? 'new' : s.s >= 2 ? 'known' : 'learning'; };
+const knownIn = list => list.filter(p => status(p.id) === 'known').length;
+const inCat = id => PHRASES.filter(p => p.cat === id);
+
+const ICON = {
+  speaker:'<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5H4z" fill="currentColor"/><path d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a7.8 7.8 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+  speakerBig:'<svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5H4z" fill="currentColor"/><path d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a7.8 7.8 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+  x:'<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>',
+  search:'<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16l4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+  chev:'<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  check:'<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+};
+
+/* ---------- toast ---------- */
+let toastTimer = 0;
+function toast(msg){
+  const t = $('#toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), 3200);
+}
+
+/* ---------- speech ---------- */
+const synth = 'speechSynthesis' in window ? window.speechSynthesis : null;
+let trVoice = null, voicesLoaded = false, currentUtt = null, playingEl = null, speakToken = 0;
+function loadVoices(){
+  if (!synth) return;
+  const vs = synth.getVoices() || [];
+  if (vs.length) voicesLoaded = true;
+  const tr = vs.filter(v => /^tr([-_]|$)/i.test(v.lang || ''));
+  trVoice = tr.find(v => v.localService) || tr[0] || null;
+  if (quiz || result) return;
+  if (S.prefs.tab === 'sounds') renderSounds();
+  else if (S.prefs.tab === 'tests') renderTests();
+}
+if (synth) {
+  if (synth.addEventListener) synth.addEventListener('voiceschanged', loadVoices);
+  else synth.onvoiceschanged = loadVoices;
+}
+// 'ok' = Turkish voice found; 'none' = definitely unavailable; 'unknown' = browser hasn't listed voices yet
+const audioState = () => !synth ? 'none' : trVoice ? 'ok' : voicesLoaded ? 'none' : 'unknown';
+function clearPlaying(){ if (playingEl) playingEl.classList.remove('playing'); playingEl = null; }
+function speak(text, el, slow){
+  if (audioState() === 'none') {
+    toast(synth ? 'No Turkish voice on this device — see the Sounds tab.' : 'This browser can’t play speech.');
+    return;
+  }
+  const token = ++speakToken;
+  if (synth.speaking || synth.pending) synth.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'tr-TR';
+  if (trVoice) u.voice = trVoice;
+  u.rate = (slow ?? S.prefs.slow) ? 0.6 : 0.9;
+  const done = () => { if (token === speakToken) clearPlaying(); };
+  u.onend = done; u.onerror = done;
+  currentUtt = u;
+  clearPlaying();
+  if (el) { el.classList.add('playing'); playingEl = el; }
+  synth.speak(u);
+}
+const sayPhrase = (id, el, slow) => { const p = BY_ID.get(id); if (p) speak(p.tr, el, slow); };
+
+/* ---------- shell ---------- */
+const view = $('#view');
+let quiz = null, result = null;
+let learnCat = 'all', learnQ = '';
+
+function updateKnown(){
+  const k = knownIn(PHRASES);
+  $('#knownBar').style.width = (k / PHRASES.length * 100).toFixed(1) + '%';
+  $('#knownTxt').textContent = `${k} of ${PHRASES.length} phrases known`;
+}
+function setTab(tab){
+  S.prefs.tab = tab; savePrefs();
+  quiz = null; result = null;
+  document.body.classList.remove('in-quiz');
+  document.querySelectorAll('.seg button').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === tab)));
+  if (tab === 'learn') renderLearn();
+  else if (tab === 'tests') renderTests();
+  else renderSounds();
+}
+function syncSlow(){ $('#slowBtn').setAttribute('aria-pressed', String(!!S.prefs.slow)); }
+
+/* ---------- Learn ---------- */
+function cardHTML(p, extra = ''){
+  const st = status(p.id);
+  const label = st === 'known' ? 'Known' : st === 'learning' ? 'Learning' : 'New';
+  return `<article class="card ${st} ${extra}" data-play="${esc(p.id)}" title="${label}">
+    <div class="card-main">
+      <div class="tr" lang="tr">${esc(p.tr)}</div>
+      <div class="say">${esc(p.say)}</div>
+      <div class="en">${esc(p.en)}</div>
+      ${p.note ? `<p class="note">${esc(p.note)}</p>` : ''}
+    </div>
+    <button class="play" type="button" data-play="${esc(p.id)}" aria-label="Hear ${esc(p.tr)}">${ICON.speaker}</button>
+  </article>`;
+}
+function catHead(c){
+  return `<div class="sec-head">
+    <div><h2><small lang="tr">${esc(c.tr)}</small>${esc(c.name)}</h2><p>${esc(c.blurb)}</p></div>
+    <button class="link-btn" type="button" data-start="${c.id}">Test me</button>
+  </div>`;
+}
+function renderLearn(){
+  view.innerHTML = `
+    <label class="search">${ICON.search}<input id="q" type="search" placeholder="Search in English or Turkish…" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Search phrases"></label>
+    <div class="chips" id="chips">
+      <button class="chip" type="button" data-cat="all">All <span>${PHRASES.length}</span></button>
+      ${CATS.map(c => `<button class="chip" type="button" data-cat="${c.id}">${esc(c.name)} <span>${inCat(c.id).length}</span></button>`).join('')}
+    </div>
+    <div class="legend"><span><i style="background:var(--good)"></i>Known</span><span><i style="background:var(--warn)"></i>Learning</span><span><i style="background:var(--hair)"></i>New</span><span>Tap a card to hear it</span></div>
+    <div id="list"></div>`;
+  $('#q').value = learnQ;
+  renderLearnList();
+}
+function renderLearnList(){
+  document.querySelectorAll('#chips .chip').forEach(b => b.classList.toggle('on', b.dataset.cat === learnCat && !learnQ));
+  const box = $('#list');
+  if (learnQ) {
+    const q = fold(clean(trLower(learnQ)));
+    const hits = PHRASES.filter(p => fold(clean(trLower(p.tr + ' ' + p.en + ' ' + p.note))).includes(q));
+    box.innerHTML = hits.length
+      ? `<div class="sec-head"><div><h2>${hits.length} match${hits.length === 1 ? '' : 'es'}</h2></div></div><div class="list">${hits.map(p => cardHTML(p)).join('')}</div>`
+      : `<p class="empty">Nothing matches “${esc(learnQ)}”. Try a simpler word — “toilet”, “water”, “how much”.</p>`;
+    return;
+  }
+  const cats = learnCat === 'all' ? CATS : [CAT[learnCat]];
+  box.innerHTML = cats.map(c => {
+    const list = inCat(c.id);
+    return catHead(c) + `<div class="list">${list.map(p => cardHTML(p)).join('')}</div>`;
+  }).join('');
+}
+
+/* ---------- Tests list ---------- */
+const bestFor = (set, mode) => S.best[set + '|' + mode];
+function rowHTML(key, n, title, sub, known, total, disabled){
+  const b = bestFor(key, S.prefs.mode);
+  const perfect = b && b.s === b.n;
+  return `<li><button class="row" type="button" data-start="${key}" ${disabled ? 'disabled' : ''}>
+    <span class="num ${perfect ? 'done' : ''}">${perfect ? ICON.check : n}</span>
+    <span class="row-main"><b>${esc(title)}</b><small>${esc(sub)}</small>${total ? `<span class="bar"><span style="width:${(known / total * 100).toFixed(0)}%"></span></span>` : ''}</span>
+    <span class="best">${b ? `<b>${b.s}/${b.n}</b>best` : 'new'}</span>
+    <span class="chev">${ICON.chev}</span>
+  </button></li>`;
+}
+function renderTests(){
+  const listenOff = audioState() === 'none';
+  if (listenOff && S.prefs.mode === 'listen') S.prefs.mode = 'meaning';
+  const seen = Object.keys(S.stats).length;
+  view.innerHTML = `
+    <h2 class="h">Test style</h2>
+    <div class="mode-grid" role="radiogroup" aria-label="Test style">
+      ${MODES.map(m => `<button class="mode" type="button" role="radio" data-mode="${m.id}" aria-checked="${S.prefs.mode === m.id}" ${m.id === 'listen' && listenOff ? 'disabled title="No Turkish voice on this device"' : ''}><b>${m.name}</b><span>${m.short}</span></button>`).join('')}
+    </div>
+    <p class="mode-desc">${esc(MODE[S.prefs.mode].desc)}</p>
+    <h2 class="h">The series</h2>
+    <ol class="series">
+      ${CATS.map((c, i) => { const l = inCat(c.id); return rowHTML(c.id, i + 1, c.name, `${l.length} phrases · ${knownIn(l)} known`, knownIn(l), l.length); }).join('')}
+    </ol>
+    <h2 class="h">Mix it up</h2>
+    <ol class="series">
+      ${rowHTML('review', '★', 'Review your weakest', seen ? '15 phrases you’ve missed or not met yet' : 'Take a test or two first', 0, 0, !seen)}
+      ${rowHTML('all', '∞', 'Everything', `20 random phrases from all ${PHRASES.length}`, 0, 0)}
+    </ol>`;
+}
+
+/* ---------- Quiz ---------- */
+function pickSet(key){
+  if (CAT[key]) return { title: CAT[key].name, list: shuffle(inCat(key)) };
+  if (key === 'all') return { title: 'Everything', list: shuffle(PHRASES).slice(0, 20) };
+  if (key === 'review') {
+    const rank = p => { const s = S.stats[p.id]; if (!s) return 50 + Math.random(); if (s.s >= 2) return 100 + s.c - s.w; return s.s * 10 - s.w * 3 + s.c; };
+    return { title: 'Review', list: shuffle(PHRASES.slice().sort((a, b) => rank(a) - rank(b)).slice(0, 15)) };
+  }
+  if (key === 'letters') return { title: 'Letters', list: shuffle(PHRASES).slice(0, 20) };
+  return { title: 'Test', list: shuffle(PHRASES).slice(0, 10) };
+}
+function distractors(p, label){
+  const ok = q => q !== p && !(p.group && q.group === p.group) && label(q) !== label(p);
+  const pool = shuffle(PHRASES.filter(q => q.cat === p.cat && ok(q)));
+  const out = [];
+  for (const q of pool) { if (out.length === 3) break; if (!out.some(o => label(o) === label(q))) out.push(q); }
+  for (const q of shuffle(PHRASES.filter(ok))) { if (out.length === 3) break; if (!out.some(o => label(o) === label(q))) out.push(q); }
+  return out;
+}
+function letterTarget(p){
+  const chars = [...p.tr];
+  for (const tier of LETTER_TIERS) {
+    const idx = [];
+    chars.forEach((ch, i) => { if (tier.includes(trLower(ch))) idx.push(i); });
+    if (idx.length) { const i = idx[Math.random() * idx.length | 0]; return { i, ch: trLower(chars[i]) }; }
+  }
+  return null;
+}
+function makeQ(p, type){
+  if (type === 'letters') {
+    const t = letterTarget(p);
+    if (!t) return makeQ(p, 'meaning');
+    const opts = shuffle([t.ch, ...shuffle(CONFUSE[t.ch]).slice(0, 3)]);
+    return { type, p, letter: t, opts, ans: opts.indexOf(t.ch) };
+  }
+  if (type === 'spell') return { type, p };
+  const label = type === 'recall' ? (q => q.tr) : (q => q.en);
+  const opts = shuffle([p, ...distractors(p, label)]);
+  return { type, p, opts, ans: opts.indexOf(p) };
+}
+function startQuiz(key, mode = S.prefs.mode, list){
+  if (mode === 'listen' && audioState() === 'none') mode = 'meaning';
+  const set = list ? { title: 'Retry', list: shuffle(list) } : pickSet(key);
+  const canListen = audioState() !== 'none';
+  const qs = set.list.map(p => {
+    let type = mode;
+    if (mode === 'mixed') {
+      const r = Math.random();
+      type = r < .34 ? 'meaning' : r < .6 ? 'recall' : r < .8 && canListen ? 'listen' : 'letters';
+    }
+    return makeQ(p, type);
+  });
+  quiz = { key, mode, title: set.title, list: set.list, qs, i: 0, score: 0, answered: false, picked: -1, missed: [], typed: '', verdict: '' };
+  result = null;
+  document.body.classList.add('in-quiz');
+  window.scrollTo(0, 0);
+  renderQuiz();
+  autoplayQuestion();
+}
+function autoplayQuestion(){
+  const q = quiz && quiz.qs[quiz.i];
+  // Called straight from the tap that started/advanced the test, so iOS lets it speak.
+  if (q && q.type === 'listen') sayPhrase(q.p.id, $('.big-play'));
+}
+function highlight(p, t){
+  return [...p.tr].map((ch, i) => i === t.i ? `<mark>${esc(ch)}</mark>` : esc(ch)).join('');
+}
+function promptHTML(q){
+  const p = q.p;
+  switch (q.type) {
+    case 'meaning': return `<div class="qlabel">What does this mean?</div>
+      <div class="qprompt" lang="tr">${esc(p.tr)}</div><div class="qsay">${esc(p.say)}</div>
+      <div class="qplay"><button class="soft-btn" type="button" data-play="${esc(p.id)}">${ICON.speaker} Hear it</button></div>`;
+    case 'recall': return `<div class="qlabel">How do you say…</div><div class="qprompt en">${esc(p.en)}</div>`;
+    case 'listen': return `<div class="qlabel">Listen — what does it mean?</div>
+      <div class="qplay"><button class="big-play" type="button" data-play="${esc(p.id)}" aria-label="Play the phrase">${ICON.speakerBig}</button></div>
+      <div class="qplay"><button class="soft-btn" type="button" data-play-slow="${esc(p.id)}">Play slowly</button></div>
+      ${quiz.answered ? `<div class="qprompt" lang="tr" style="margin-top:14px">${esc(p.tr)}</div>` : ''}`;
+    case 'letters': return `<div class="qlabel">How is the highlighted letter said?</div>
+      <div class="qprompt" lang="tr">${highlight(p, q.letter)}</div>
+      ${quiz.answered ? `<div class="qsay">${esc(p.say)}</div>` : ''}`;
+    case 'spell': return `<div class="qlabel">Type this in Turkish</div><div class="qprompt en">${esc(p.en)}</div>`;
+  }
+}
+function optLabel(q, o){
+  if (q.type === 'letters') { const s = SOUNDS[o]; return `<span class="lbl"><b>${esc(s.k)}</b> <small>${esc(s.d)}</small></span>`; }
+  if (q.type === 'recall') return `<span class="lbl">${esc(o.tr)}</span>`;
+  return `<span class="lbl">${esc(o.en)}</span>`;
+}
+function answersHTML(q){
+  if (q.type === 'spell') {
+    const cls = quiz.answered ? (quiz.verdict === 'wrong' ? 'no' : 'ok') : '';
+    return `<form class="typebox" id="spellForm" autocomplete="off">
+      <input id="spellIn" lang="tr" class="${cls}" value="${esc(quiz.typed)}" ${quiz.answered ? 'readonly' : ''} placeholder="Type here…" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Your answer in Turkish">
+      ${quiz.answered ? '' : `<div class="keys" aria-label="Turkish letters">${['ç','ğ','ı','İ','ö','ş','ü'].map(k => `<button type="button" data-key="${k}">${k}</button>`).join('')}</div>
+      <div class="type-actions"><button class="primary" type="submit">Check</button><button class="soft-btn" type="button" data-action="giveup">Show me</button></div>`}
+    </form>`;
+  }
+  const lang = q.type === 'recall' ? ' lang="tr"' : '';
+  return q.opts.map((o, i) => {
+    let cls = '';
+    if (quiz.answered) cls = i === q.ans ? 'right' : i === quiz.picked ? 'wrong' : 'dim';
+    return `<button class="opt ${cls}" type="button" data-opt="${i}"${lang} ${quiz.answered ? 'disabled' : ''}><span class="k">${i + 1}</span>${optLabel(q, o)}</button>`;
+  }).join('');
+}
+function feedbackHTML(q){
+  const good = quiz.verdict !== 'wrong';
+  let sub = good ? 'Correct' : 'Not quite';
+  if (q.type === 'spell') {
+    if (quiz.verdict === 'accents') sub = 'Correct — mind the Turkish letters';
+    if (quiz.verdict === 'close') sub = 'Correct — one letter off';
+  }
+  let hint = '';
+  if (q.type === 'letters') {
+    const s = SOUNDS[q.letter.ch];
+    hint = `<p class="hint"><b>${esc(q.letter.ch)}</b> sounds like <b>${esc(s.k)}</b> — ${esc(s.d)}.</p>`;
+  }
+  if (q.type === 'spell' && quiz.verdict !== 'exact') {
+    hint += `<p class="hint">Spelled: <b lang="tr">${esc(q.p.tr)}</b></p>`;
+  }
+  const last = quiz.i === quiz.qs.length - 1;
+  return `<div class="fb ${good ? 'good' : 'bad'}"><b lang="tr">${good ? 'Doğru!' : 'Yanlış'}</b><span>${sub}</span></div>
+    <div class="reveal" data-play="${esc(q.p.id)}">
+      <div class="card-main">
+        <div class="tr" lang="tr">${esc(q.p.tr)}</div>
+        <div class="say">${esc(q.p.say)}</div>
+        <div class="en">${esc(q.p.en)}</div>
+        ${q.p.note ? `<p class="note">${esc(q.p.note)}</p>` : ''}
+        ${hint}
+      </div>
+      <button class="play" type="button" data-play="${esc(q.p.id)}" aria-label="Hear ${esc(q.p.tr)}">${ICON.speaker}</button>
+    </div>
+    <button class="primary next" type="button" data-action="next">${last ? 'See results' : 'Next'}</button>
+    <p class="kbd-hint">${q.type === 'spell' ? 'Enter for next' : 'Keys: 1–4 to answer · Enter for next'}</p>`;
+}
+function renderQuiz(){
+  const q = quiz.qs[quiz.i], n = quiz.qs.length;
+  const pct = ((quiz.i + (quiz.answered ? 1 : 0)) / n * 100).toFixed(1);
+  view.innerHTML = `
+    <div class="qtop">
+      <button class="icon-btn" type="button" data-action="quit" aria-label="Quit test">${ICON.x}</button>
+      <div class="qtitle"><b>${esc(quiz.title)}</b><span>${esc(MODE[quiz.mode].name)} · ${quiz.i + 1} of ${n}</span></div>
+      <div class="qscore" title="Correct so far">${quiz.score}</div>
+    </div>
+    <div class="bar qbar"><span style="width:${pct}%"></span></div>
+    <section class="qcard">${promptHTML(q)}</section>
+    <div class="answers">${answersHTML(q)}</div>
+    <div id="feedback" aria-live="polite">${quiz.answered ? feedbackHTML(q) : ''}</div>`;
+  if (quiz.answered) { const nb = $('.next'); if (nb) nb.focus({ preventScroll: true }); }
+  else if (q.type === 'spell') { const inp = $('#spellIn'); if (inp && matchMedia('(hover:hover)').matches) inp.focus(); }
+}
+function record(id, right){
+  const s = S.stats[id] || (S.stats[id] = { c:0, w:0, s:0 });
+  if (right) { s.c++; s.s++; } else { s.w++; s.s = 0; }
+  store.set('stats', S.stats);
+  updateKnown();
+}
+function settle(right){
+  const q = quiz.qs[quiz.i];
+  quiz.answered = true;
+  if (right) quiz.score++; else quiz.missed.push(q.p);
+  record(q.p.id, right);
+  renderQuiz();
+  const fb = $('#feedback');
+  if (fb && fb.getBoundingClientRect().bottom > innerHeight) fb.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  if (S.prefs.auto && q.type !== 'listen') sayPhrase(q.p.id, $('.reveal .play'));
+}
+function answer(i){
+  if (!quiz || quiz.answered) return;
+  const q = quiz.qs[quiz.i];
+  if (q.type === 'spell' || i < 0 || i >= q.opts.length) return;
+  quiz.picked = i;
+  quiz.verdict = i === q.ans ? 'exact' : 'wrong';
+  settle(i === q.ans);
+}
+function checkSpelling(giveUp){
+  if (!quiz || quiz.answered) return;
+  const q = quiz.qs[quiz.i];
+  const raw = ($('#spellIn') || {}).value || '';
+  if (!giveUp && !raw.trim()) { toast('Type your answer first — or tap “Show me”.'); return; }
+  quiz.typed = raw;
+  // Typed text: a plain "I" on an English keyboard most likely means i, so don't use Turkish casing here.
+  const typed = clean(raw.replace(/İ/g, 'i').toLowerCase());
+  const want = clean(trLower(q.p.tr));
+  let v = 'wrong';
+  if (!giveUp) {
+    if (typed === want) v = 'exact';
+    else if (fold(typed) === fold(want)) v = 'accents';
+    else if (want.length >= 6 && lev(fold(typed), fold(want)) <= 1) v = 'close';
+  }
+  quiz.verdict = v;
+  settle(v !== 'wrong');
+}
+function next(){
+  if (!quiz || !quiz.answered) return;
+  if (quiz.i < quiz.qs.length - 1) {
+    quiz.i++; quiz.answered = false; quiz.picked = -1; quiz.typed = ''; quiz.verdict = '';
+    renderQuiz(); window.scrollTo(0, 0); autoplayQuestion();
+  } else finish();
+}
+function finish(){
+  const { key, mode, score, qs, missed, title, list } = quiz;
+  let newBest = false;
+  if (key !== 'retry') {
+    const k = key + '|' + mode, prev = S.best[k];
+    if (!prev || score / qs.length > prev.s / prev.n) { S.best[k] = { s: score, n: qs.length }; store.set('best', S.best); newBest = !!prev; }
+  }
+  result = { key, mode, score, n: qs.length, missed, title, list, newBest };
+  quiz = null;
+  renderResult();
+  window.scrollTo(0, 0);
+}
+function renderResult(){
+  const r = result, pct = r.score / r.n;
+  const [tr, en] = pct === 1 ? ['Mükemmel!', 'Perfect'] : pct >= .8 ? ['Çok iyi!', 'Very good'] : pct >= .5 ? ['İyi!', 'Good — keep going'] : ['Devam!', 'Keep at it — it sticks with repetition'];
+  const C = 2 * Math.PI * 64;
+  view.innerHTML = `
+    <div class="qtop">
+      <button class="icon-btn" type="button" data-action="back" aria-label="Back to tests">${ICON.x}</button>
+      <div class="qtitle"><b>${esc(r.title)}</b><span>${esc(MODE[r.mode].name)} · finished</span></div>
+    </div>
+    <div class="result">
+      <div class="ring">
+        <svg viewBox="0 0 150 150" width="150" height="150" aria-hidden="true">
+          <circle cx="75" cy="75" r="64" fill="none" stroke="var(--hair)" stroke-width="10"/>
+          ${pct > 0 ? `<circle cx="75" cy="75" r="64" fill="none" stroke="var(--good)" stroke-width="10" stroke-linecap="round"
+            stroke-dasharray="${(C * pct).toFixed(1)} ${C.toFixed(1)}"/>` : ''}
+        </svg>
+        <div class="val">${r.score}/${r.n}<small>correct</small></div>
+      </div>
+      <h2 lang="tr">${tr}</h2>
+      <p>${en}.</p>
+      ${r.newBest ? '<span class="newbest">New best for this test</span>' : ''}
+      <div class="actions">
+        ${r.missed.length ? `<button class="primary" type="button" data-action="retry">Retry the ${r.missed.length} you missed</button>` : ''}
+        <button class="soft-btn" type="button" data-action="again">Take this test again</button>
+        <button class="soft-btn" type="button" data-action="back">All tests</button>
+      </div>
+    </div>
+    ${r.missed.length ? `<h2 class="h">To practise</h2><div class="list missed">${r.missed.map(p => cardHTML(p)).join('')}</div>` : ''}`;
+}
+
+/* ---------- Sounds ---------- */
+const LETTER_CARDS = [
+  ['C c', 'c', 'cami', 'ja-mee', 'mosque'],
+  ['Ç ç', 'ç', 'çay', 'chai', 'tea'],
+  ['Ş ş', 'ş', 'şeker', 'sheh-ker', 'sugar'],
+  ['Ğ ğ', 'ğ', 'dağ', 'daa', 'mountain'],
+  ['I ı', 'ı', 'altı', 'al-tuh', 'six'],
+  ['İ i', 'i', 'iki', 'ee-kee', 'two'],
+  ['Ö ö', 'ö', 'dört', 'durt', 'four'],
+  ['Ü ü', 'ü', 'üç', 'ewch', 'three'],
+  ['U u', 'u', 'su', 'soo', 'water'],
+  ['J j', 'j', 'plaj', 'plazh', 'beach'],
+  ['A a', 'a', 'Antalya', 'an-TAL-ya', ''],
+  ['E e', 'e', 'ekmek', 'ek-mek', 'bread'],
+];
+function renderSounds(){
+  const st = audioState();
+  const voiceLine = st === 'ok'
+    ? `<div class="voice ok"><b>Turkish voice ready</b> — ${esc(trVoice.name)} (${esc(trVoice.lang)}).</div>`
+    : st === 'none'
+      ? `<div class="voice no"><b>No Turkish voice found on this device.</b> Everything still works from the respellings. To add audio:
+          on iPhone/iPad go to Settings › Accessibility › Spoken Content › Voices › Turkish; on Android, open your text-to-speech settings and install Turkish voice data; on a computer, add Turkish in your system’s language or speech settings. Then reload this page.</div>`
+      : `<div class="voice">Checking for a Turkish voice… tap “Test the voice” to try.</div>`;
+  view.innerHTML = `
+    <h2 class="h">Letters that trip people up</h2>
+    <p class="prose">Turkish is spelled exactly as it sounds — every letter, every time. Learn these and you can read any sign in Antalya. Tap a card to hear the example.</p>
+    <div class="letters">
+      ${LETTER_CARDS.map(([L, k, w, say, en]) => `<button class="letter" type="button" data-speak="${esc(w)}">
+        <span class="L" lang="tr">${esc(L)}</span>
+        <span class="S"><b>${esc(SOUNDS[k].k)}</b> — ${esc(SOUNDS[k].d)}</span>
+        <span class="ex"><em lang="tr">${esc(w)}</em> ${esc(say)}${en ? ' · ' + esc(en) : ''}</span>
+      </button>`).join('')}
+    </div>
+    <button class="primary cta" type="button" data-start="letters" data-mode-force="letters">Take the letters test</button>
+
+    <h2 class="h">Reading the respellings</h2>
+    <div class="key">
+      <div><b>ee</b> <em>i</em> — see</div>
+      <div><b>uh</b> <em>ı</em> — about</div>
+      <div><b>oo</b> <em>u</em> — put</div>
+      <div><b>ew</b> <em>ü</em> — few</div>
+      <div><b>ur</b> <em>ö</em> — fur</div>
+      <div><b>eh</b> <em>e</em> — bed</div>
+      <div><b>j</b> <em>c</em> — jam</div>
+      <div><b>ch</b> <em>ç</em> — chin</div>
+      <div><b>sh</b> <em>ş</em> — ship</div>
+      <div><b>zh</b> <em>j</em> — measure</div>
+      <div><b>ai</b> <em>ay</em> — eye</div>
+      <div><b>aa</b> <em>ağ</em> — long a</div>
+    </div>
+
+    <h2 class="h">Tips</h2>
+    <ul class="tips">
+      <li><b>Stress is light</b> and usually on the last syllable. In the respellings, <span style="color:var(--say);font-weight:600">CAPITALS</span> mark the syllable when the stress moves somewhere else — like <span style="color:var(--say);font-weight:600">LEWT-fen</span> (lütfen).</li>
+      <li><b>Double letters are held longer</b>: el-lee (elli), teh-shek-kewr (teşekkür).</li>
+      <li><b>Always sound the h</b> — kahve is kah-veh, not “ka-veh”.</li>
+      <li><b>The r is tapped</b>, and softer and breathier at the end of a word.</li>
+      <li><b>I/ı and İ/i are different letters.</b> Dotless ı is the “uh” sound; dotted i is “ee” — even as a capital: İstanbul.</li>
+      <li><b>Endings change to match the word</b> (vowel harmony) — that’s why you see both <em lang="tr">-lar</em> and <em lang="tr">-ler</em>.</li>
+    </ul>
+
+    <h2 class="h">Audio</h2>
+    <div class="panel">
+      ${voiceLine}
+      <div class="switch"><span>Slow speech<small>Plays every phrase at a gentler pace.</small></span><button class="toggle" type="button" role="switch" data-pref="slow" aria-checked="${!!S.prefs.slow}" aria-label="Slow speech"></button></div>
+      <div class="switch"><span>Play answers in tests<small>Hear the phrase each time you answer.</small></span><button class="toggle" type="button" role="switch" data-pref="auto" aria-checked="${!!S.prefs.auto}" aria-label="Play answers in tests"></button></div>
+      <div><button class="soft-btn" type="button" data-speak="Merhaba, hoş geldiniz!">${ICON.speaker} Test the voice</button></div>
+    </div>`;
+}
+
+/* ---------- events ---------- */
+document.addEventListener('click', e => {
+  const t = e.target.closest('button, [data-play], [data-speak]');
+  if (!t) return;
+
+  if (t.dataset.tab) { setTab(t.dataset.tab); window.scrollTo(0, 0); return; }
+  if (t.id === 'slowBtn') { S.prefs.slow = !S.prefs.slow; savePrefs(); syncSlow(); if (S.prefs.tab === 'sounds' && !quiz && !result) renderSounds(); toast(S.prefs.slow ? 'Slow speech on' : 'Normal speed'); return; }
+  if (t.id === 'resetBtn') {
+    if (confirm('Clear all your progress and best scores on this device?')) { S.stats = {}; S.best = {}; store.set('stats', {}); store.set('best', {}); updateKnown(); setTab(S.prefs.tab); toast('Progress cleared'); }
+    return;
+  }
+  if (t.dataset.cat) { learnCat = t.dataset.cat; learnQ = ''; const q = $('#q'); if (q) q.value = ''; renderLearnList(); return; }
+  if (t.dataset.mode) { S.prefs.mode = t.dataset.mode; savePrefs(); renderTests(); return; }
+  if (t.dataset.start) { startQuiz(t.dataset.start, t.dataset.modeForce || (t.dataset.start === 'letters' ? 'letters' : S.prefs.mode)); return; }
+  if (t.dataset.pref) { S.prefs[t.dataset.pref] = !S.prefs[t.dataset.pref]; savePrefs(); syncSlow(); renderSounds(); return; }
+  if (t.dataset.speak) { speak(t.dataset.speak, t.classList.contains('letter') ? null : t); return; }
+  if (t.dataset.playSlow) { sayPhrase(t.dataset.playSlow, $('.big-play'), true); return; }
+  if (t.dataset.play) {
+    const btn = t.matches('.play, .big-play, .soft-btn') ? t : t.querySelector('.play');
+    sayPhrase(t.dataset.play, btn); return;
+  }
+  if (t.dataset.opt) { answer(+t.dataset.opt); return; }
+  if (t.dataset.key) {
+    const inp = $('#spellIn'); if (!inp) return;
+    const a = inp.selectionStart ?? inp.value.length, b = inp.selectionEnd ?? inp.value.length;
+    inp.value = inp.value.slice(0, a) + t.dataset.key + inp.value.slice(b);
+    inp.focus(); inp.setSelectionRange(a + 1, a + 1); return;
+  }
+  switch (t.dataset.action) {
+    case 'next': next(); break;
+    case 'giveup': checkSpelling(true); break;
+    case 'quit': case 'back': if (synth) synth.cancel(); setTab('tests'); window.scrollTo(0, 0); break;
+    case 'again': startQuiz(result.key, result.mode, result.key === 'retry' ? result.list : undefined); break;
+    case 'retry': startQuiz('retry', result.mode, result.missed); break;
+  }
+});
+document.addEventListener('submit', e => { if (e.target.id === 'spellForm') { e.preventDefault(); checkSpelling(false); } });
+document.addEventListener('input', e => {
+  if (e.target.id === 'q') { learnQ = e.target.value.trim(); renderLearnList(); }
+});
+document.addEventListener('keydown', e => {
+  if (!quiz || e.metaKey || e.ctrlKey || e.altKey) return;
+  const inInput = e.target.tagName === 'INPUT';
+  if (!quiz.answered && !inInput && /^[1-4]$/.test(e.key)) { answer(+e.key - 1); e.preventDefault(); }
+  else if (quiz.answered && (e.key === 'Enter' || e.key === ' ') && e.target.tagName !== 'BUTTON') { next(); e.preventDefault(); }
+  else if (e.key === 'Escape') { if (synth) synth.cancel(); setTab('tests'); }
+});
+
+/* ---------- go ---------- */
+loadVoices();
+setTimeout(loadVoices, 600);
+setTimeout(() => { loadVoices(); if (synth && !voicesLoaded) { voicesLoaded = true; loadVoices(); } }, 2500);
+syncSlow();
+updateKnown();
+setTab(['learn', 'tests', 'sounds'].includes(S.prefs.tab) ? S.prefs.tab : 'learn');
+})();
+</script>
+</body>
+</html>
